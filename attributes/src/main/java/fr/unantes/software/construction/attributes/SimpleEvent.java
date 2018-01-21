@@ -71,4 +71,17 @@ public class SimpleEvent implements Event {
         //TODO
         return null;
     }
+
+    protected void setStart(Calendar cal) {
+        //TODO
+    }
+
+    protected Calendar getEnd() {
+        //TODO
+        return null;
+    }
+
+    protected void setEnd(Calendar cal) {
+        //TODO
+    }
 }
