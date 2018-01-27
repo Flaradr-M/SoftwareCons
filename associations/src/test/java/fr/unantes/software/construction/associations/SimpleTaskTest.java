@@ -38,7 +38,7 @@ class SimpleTaskTest {
 
     @Test
     void testEventInsert() {
-        Event evt1 = new SimpleEvent();
+        Event evt1 = new SimpleEvent(Integer.valueOf(1));
         task1.event().insert(evt1);
 
         assertTrue(task1.event().valid());
@@ -49,7 +49,7 @@ class SimpleTaskTest {
     @Test
     void testEventInsertAndSetName() {
         String expected = "second";
-        Event evt1 = new SimpleEvent();
+        Event evt1 = new SimpleEvent(Integer.valueOf(1));
         evt1.setName("first");
 
         task1.event().insert(evt1);
@@ -60,7 +60,7 @@ class SimpleTaskTest {
 
     @Test
     void testEventInsertAndAddAlarm() {
-        Event evt1 = new SimpleEvent();
+        Event evt1 = new SimpleEvent(Integer.valueOf(1));
         evt1.addAlarm(Integer.valueOf(44));
 
         task1.event().insert(evt1);
@@ -74,19 +74,19 @@ class SimpleTaskTest {
     @Test
     void testEventInsertAndSetLocation() {
         String expected = "another location";
-        Event evt1 = new SimpleEvent();
+        Event evt1 = new SimpleEvent(Integer.valueOf(1));
         evt1.setLocation("a location");
 
         task1.event().insert(evt1);
         task1.event().setLocation(expected);
 
-        assertEquals(expected, task1.event().getName());
+        assertEquals(expected, task1.event().getLocation());
     }
 
     @Test
     void testEventInsertRemove() {
-        Event evt1 = new SimpleEvent();
-        Event evt2 = new SimpleEvent();
+        Event evt1 = new SimpleEvent(Integer.valueOf(1));
+        Event evt2 = new SimpleEvent(Integer.valueOf(2));
 
         task1.event().insert(evt1);
         task1.event().insert(evt2);
