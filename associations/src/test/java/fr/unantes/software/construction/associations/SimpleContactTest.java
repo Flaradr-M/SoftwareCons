@@ -24,6 +24,7 @@ class SimpleContactTest {
     void testFirstName() {
         String expected = "##@##";
 
+        ctc1.setFirstName(expected);
         assertEquals(expected, ctc1.getFirstName());
 
     }
@@ -32,6 +33,7 @@ class SimpleContactTest {
     void testLastName() {
         String expected = "##@##";
 
+        ctc1.setLastName(expected);
         assertEquals(expected, ctc1.getLastName());
     }
 }
