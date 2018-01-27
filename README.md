@@ -24,3 +24,4 @@ During the labs, you will use 3 different tools: Apache Maven, JUnit and Intelli
 
 ## Labs
   1. [Attribute implementation](attributes/).
+  2. [Association implementation](associations/).
