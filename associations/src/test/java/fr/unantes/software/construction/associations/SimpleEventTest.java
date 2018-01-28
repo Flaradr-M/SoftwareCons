@@ -86,4 +86,18 @@ class SimpleEventTest {
         assertFalse(evt2.task().isSet());
         assertEquals(evt1, task2.event().get());
     }
+
+    @Test
+    void testSetCalendar() {
+        Calendar cal1 = new SimpleCalendar();
+        Calendar cal2 = new SimpleCalendar();
+
+        evt1.calendar().set(cal1);
+        assertTrue(cal1.events().contains(evt1));
+
+        evt1.calendar().set(cal2);
+        assertFalse(cal1.events().contains(evt1));
+        assertTrue(cal2.events().contains(evt1));
+        assertEquals(cal2, evt1.calendar().get());
+    }
 }
