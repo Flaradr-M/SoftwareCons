@@ -34,7 +34,7 @@ class SimpleTaskTest {
         Event evt1 = new SimpleEvent(Integer.valueOf(1));
         task1.event().set(evt1);
 
-        assertEquals(evt1.task().get(), task1);
+        assertEquals(task1, evt1.task().get());
         assertEquals(evt1, task1.event().get());
     }
 
@@ -49,6 +49,22 @@ class SimpleTaskTest {
 
         assertEquals(evt1.task().get(), task3);
         assertFalse(task2.event().isSet());
+    }
+
+    @Test
+    void testCompleteHandshake() {
+        Task task2 = new SimpleTask();
+        Event evt1 = new SimpleEvent(Integer.valueOf(1));
+        Event evt2 = new SimpleEvent(Integer.valueOf(2));
+
+        task1.event().set(evt1);
+        task2.event().set(evt2);
+
+        task2.event().set(evt1);
+
+        assertFalse(evt2.task().isSet());
+        assertFalse(task1.event().isSet());
+
     }
 
     @Test
