@@ -17,12 +17,8 @@ public class SimpleTask implements Task {
     }
 
     @Override
-    public TaskEventCursor event() {
+    public SingleReference<Event> event() {
         return null;
     }
 
-    @Override
-    public Opposite<Event> eventOpposite() {
-        return null;
-    }
 }

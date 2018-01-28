@@ -11,7 +11,5 @@ public interface Task {
 
     void setTitle(String newTitle);
 
-    TaskEventCursor event();
-
-    Opposite<Event> eventOpposite();
+    SingleReference<Event> event();
 }

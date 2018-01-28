@@ -62,12 +62,7 @@ public class SimpleEvent implements Event {
     }
 
     @Override
-    public EventTaskCursor task() {
-        return null;
-    }
-
-    @Override
-    public Opposite<Task> taskOpposite() {
+    public SingleReference<Task> task() {
         return null;
     }
 

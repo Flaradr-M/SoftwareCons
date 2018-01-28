@@ -27,9 +27,7 @@ public interface Event {
 
     Opposite<Calendar> calendarOpposite();
 
-    EventTaskCursor task();
-
-    Opposite<Task> taskOpposite();
+    SingleReference<Task> task();
 
     EventContactCursor invitees();
 
