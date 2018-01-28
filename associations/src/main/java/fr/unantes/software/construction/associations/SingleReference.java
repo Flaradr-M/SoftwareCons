@@ -13,8 +13,7 @@ public interface SingleReference<T> {
 
     void unset();
 
-    void basicSet(T newValue);
-
     boolean isSet();
 
+    void basicUnSet();
 }
