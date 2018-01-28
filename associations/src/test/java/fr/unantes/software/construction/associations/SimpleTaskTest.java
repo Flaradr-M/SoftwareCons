@@ -48,7 +48,7 @@ class SimpleTaskTest {
         task3.event().set(evt1);
 
         assertEquals(evt1.task().get(), task3);
-        assertNull(task2.event().get());
+        assertFalse(task2.event().isSet());
     }
 
     @Test
@@ -59,8 +59,8 @@ class SimpleTaskTest {
         task2.event().set(evt1);
         task2.event().unset();
 
-        assertNull(task2.event().get());
-        assertNull(evt1.task().get());
+        assertFalse(task2.event().isSet());
+        assertFalse(evt1.task().isSet());
     }
 
 }

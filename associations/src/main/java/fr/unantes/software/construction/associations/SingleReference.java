@@ -15,4 +15,6 @@ public interface SingleReference<T> {
 
     void basicSet(T newValue);
 
+    boolean isSet();
+
 }
