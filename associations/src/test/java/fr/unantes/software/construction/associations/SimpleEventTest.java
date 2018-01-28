@@ -62,4 +62,28 @@ class SimpleEventTest {
         assertTrue(evt1.invitees().size() == 0);
     }
 
+    @Test
+    void testSetTask() {
+        Task task1 = new SimpleTask();
+
+        evt1.task().set(task1);
+
+        assertEquals(evt1, task1.event().get());
+    }
+
+    @Test
+    void testTaskCompleteHandshake() {
+        Event evt2 = new SimpleEvent(Integer.valueOf(2));
+        Task task1 = new SimpleTask();
+        Task task2 = new SimpleTask();
+
+        evt1.task().set(task1);
+        evt2.task().set(task2);
+
+        evt1.task().set(task2);
+
+        assertFalse(task1.event().isSet());
+        assertFalse(evt2.task().isSet());
+        assertEquals(evt1, task2.event().get());
+    }
 }

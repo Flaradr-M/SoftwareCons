@@ -72,4 +72,26 @@ class SimpleCalendarTest {
             assertEquals(cal2, each.calendar().get());
         }
     }
+
+    @Test
+    void testRemove() {
+        Event[] events = {new SimpleEvent(Integer.valueOf(1)), new SimpleEvent(Integer.valueOf(2)),
+                new SimpleEvent(Integer.valueOf(3)), new SimpleEvent(Integer.valueOf(4))};
+
+        for(Event each : events) {
+            cal1.events().add(each);
+        }
+
+        assertEquals(events.length, cal1.events().size());
+
+        for(Event each : events) {
+            cal1.events().remove(each);
+        }
+
+        for(Event each : events) {
+            assertFalse(each.calendar().isSet());
+        }
+
+        assertEquals(0, cal1.events().size());
+    }
 }
