@@ -30,4 +30,9 @@ public class SimpleCalendar implements Calendar {
     public CalendarEventsCursor events() {
         return null;
     }
+
+    @Override
+    public Opposite<Event> eventsOpposite() {
+        return null;
+    }
 }

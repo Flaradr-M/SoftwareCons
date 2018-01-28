@@ -17,4 +17,6 @@ public interface Calendar {
 
     CalendarEventsCursor events();
 
+    Opposite<Event> eventsOpposite();
+
 }

@@ -20,4 +20,9 @@ public class SimpleTask implements Task {
     public TaskEventCursor event() {
         return null;
     }
+
+    @Override
+    public Opposite<Event> eventOpposite() {
+        return null;
+    }
 }

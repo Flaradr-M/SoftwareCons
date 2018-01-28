@@ -40,9 +40,9 @@ class SimpleCalendarTest {
 
     @Test
     void testEventsInsert() {
-        Event evt1 = new SimpleEvent();
-        Event evt2 = new SimpleEvent();
-        Event evt3 = new SimpleEvent();
+        Event evt1 = new SimpleEvent(Integer.valueOf(1));
+        Event evt2 = new SimpleEvent(Integer.valueOf(2));
+        Event evt3 = new SimpleEvent(Integer.valueOf(3));
 
         Stream<Event> stream = Stream.of(evt1, evt2, evt3);
 
@@ -53,9 +53,9 @@ class SimpleCalendarTest {
 
     @Test
     void testEventsInsertRemove() {
-        Event evt1 = new SimpleEvent();
-        Event evt2 = new SimpleEvent();
-        Event evt3 = new SimpleEvent();
+        Event evt1 = new SimpleEvent(Integer.valueOf(1));
+        Event evt2 = new SimpleEvent(Integer.valueOf(2));
+        Event evt3 = new SimpleEvent(Integer.valueOf(3));
         CalendarEventsCursor cursor = cal1.events();
 
         Stream<Event> stream = Stream.of(evt1, evt2, evt3);

@@ -57,12 +57,22 @@ public class SimpleEvent implements Event {
     }
 
     @Override
+    public Opposite<Calendar> calendarOpposite() {
+        return null;
+    }
+
+    @Override
     public EventTaskCursor task() {
         return null;
     }
 
     @Override
-    public EventContactCursor contacts() {
+    public Opposite<Task> taskOpposite() {
+        return null;
+    }
+
+    @Override
+    public EventContactCursor invitees() {
         return null;
     }
 }
