@@ -43,6 +43,41 @@ class SimpleEventTest {
     }
 
     @Test
+    void testAlarm() {
+        Event evt = new SimpleEvent(12);
+        evt.addAlarm(Integer.valueOf(42));
+        evt.addAlarm(Integer.valueOf(13));
+        evt.addAlarm(Integer.valueOf(99));
+
+        assertEquals(evt.getAlarm(0), Integer.valueOf(42));
+        assertEquals(evt.getAlarm(1), Integer.valueOf(13));
+        assertEquals(evt.getAlarm(2), Integer.valueOf(99));
+    }
+
+    @Test
+    void testAlarmExceeding() {
+        Event evt = new SimpleEvent(12);
+        for (int i = 0; i < 5; i++) {
+            evt.addAlarm(Integer.valueOf(i));
+        }
+
+        assertFalse(evt.addAlarm(Integer.valueOf(42)));
+    }
+
+
+    @Test
+    void removeAlarm() {
+        Event evt = new SimpleEvent(12);
+        evt.addAlarm(Integer.valueOf(42));
+        evt.addAlarm(Integer.valueOf(13));
+        evt.addAlarm(Integer.valueOf(99));
+
+        evt.removeAlarm(1);
+
+        assertEquals(evt.getAlarm(1), Integer.valueOf(99));
+    }
+
+    @Test
     void testAddContacts() {
         Contact[] contacts = {new SimpleContact(), new SimpleContact(),
                 new SimpleContact(),new SimpleContact()};
