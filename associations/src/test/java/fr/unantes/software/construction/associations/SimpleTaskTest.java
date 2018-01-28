@@ -38,4 +38,29 @@ class SimpleTaskTest {
         assertEquals(evt1, task1.event().get());
     }
 
+    @Test
+    void testHandshake() {
+        Task task2 = new SimpleTask();
+        Task task3 = new SimpleTask();
+        Event evt1 = new SimpleEvent(Integer.valueOf(1));
+
+        task2.event().set(evt1);
+        task3.event().set(evt1);
+
+        assertEquals(evt1.task().get(), task3);
+        assertNull(task2.event().get());
+    }
+
+    @Test
+    void testUnset() {
+        Task task2 = new SimpleTask();
+        Event evt1 = new SimpleEvent(Integer.valueOf(1));
+
+        task2.event().set(evt1);
+        task2.event().unset();
+
+        assertNull(task2.event().get());
+        assertNull(evt1.task().get());
+    }
+
 }
