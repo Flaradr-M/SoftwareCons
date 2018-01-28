@@ -3,6 +3,8 @@ package fr.unantes.software.construction.associations;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.stream.Stream;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -41,30 +43,17 @@ class SimpleEventTest {
     }
 
     @Test
-    void testValidCalendar() {
-        assertFalse(evt1.calendar().valid());
+    void testAddContacts() {
+        Stream<Contact> contacts = Stream.of(new SimpleContact(), new SimpleContact(),
+                new SimpleContact(),new SimpleContact());
 
-        evt1.calendar().insert(new SimpleCalendar());
-        assertTrue(evt1.calendar().valid());
+        contacts.forEach(each -> evt1.invitees().add(each));
+
+        assertTrue(contacts.allMatch(each -> evt1.invitees().contains(each)));
+
+        contacts.forEach(each -> evt1.invitees().remove(each));
+
+        assertTrue(evt1.invitees().size() == 0);
     }
 
-    @Test
-    void testInsertCalendar() {
-        Calendar cal = new SimpleCalendar();
-
-        evt1.calendar().insert(cal);
-        assertEquals(cal.events().getId(), evt1.getId());
-
-    }
-
-    @Test
-    void testInsertRemoveCalendar() {
-        Calendar cal = new SimpleCalendar();
-
-        evt1.calendar().insert(cal);
-        evt1.calendar().remove();
-
-        assertFalse(cal.events().valid());
-
-    }
 }

@@ -27,12 +27,8 @@ public class SimpleCalendar implements Calendar {
     }
 
     @Override
-    public CalendarEventsCursor events() {
+    public MultipleReference<Event> events() {
         return null;
     }
 
-    @Override
-    public Opposite<Event> eventsOpposite() {
-        return null;
-    }
 }

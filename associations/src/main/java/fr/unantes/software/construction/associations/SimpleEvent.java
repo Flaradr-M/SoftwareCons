@@ -33,7 +33,6 @@ public class SimpleEvent implements Event {
 
     @Override
     public void setLocation(String str) {
-
     }
 
     @Override
@@ -52,12 +51,7 @@ public class SimpleEvent implements Event {
     }
 
     @Override
-    public EventCalendarCursor calendar() {
-        return null;
-    }
-
-    @Override
-    public Opposite<Calendar> calendarOpposite() {
+    public SingleReference<Calendar> calendar() {
         return null;
     }
 
@@ -67,7 +61,8 @@ public class SimpleEvent implements Event {
     }
 
     @Override
-    public EventContactCursor invitees() {
+    public MultipleReference<Contact> invitees() {
         return null;
     }
+
 }

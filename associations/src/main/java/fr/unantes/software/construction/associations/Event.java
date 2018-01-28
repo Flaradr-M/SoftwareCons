@@ -23,12 +23,10 @@ public interface Event {
 
     Integer removeAlarm(int i);
 
-    EventCalendarCursor calendar();
-
-    Opposite<Calendar> calendarOpposite();
+    SingleReference<Calendar> calendar();
 
     SingleReference<Task> task();
 
-    EventContactCursor invitees();
+    MultipleReference<Contact> invitees();
 
 }

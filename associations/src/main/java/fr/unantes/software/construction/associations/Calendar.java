@@ -15,8 +15,6 @@ public interface Calendar {
 
     void setDescription(String str);
 
-    CalendarEventsCursor events();
-
-    Opposite<Event> eventsOpposite();
+    MultipleReference<Event> events();
 
 }
