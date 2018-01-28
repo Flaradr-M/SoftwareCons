@@ -44,14 +44,20 @@ class SimpleEventTest {
 
     @Test
     void testAddContacts() {
-        Stream<Contact> contacts = Stream.of(new SimpleContact(), new SimpleContact(),
-                new SimpleContact(),new SimpleContact());
+        Contact[] contacts = {new SimpleContact(), new SimpleContact(),
+                new SimpleContact(),new SimpleContact()};
 
-        contacts.forEach(each -> evt1.invitees().add(each));
+        for (Contact each: contacts) {
+            evt1.invitees().add(each);
+        }
 
-        assertTrue(contacts.allMatch(each -> evt1.invitees().contains(each)));
+        for (Contact each: contacts) {
+            assertTrue(evt1.invitees().contains(each));
+        }
 
-        contacts.forEach(each -> evt1.invitees().remove(each));
+        for (Contact each: contacts) {
+            evt1.invitees().remove(each);
+        }
 
         assertTrue(evt1.invitees().size() == 0);
     }
