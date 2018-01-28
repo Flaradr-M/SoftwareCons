@@ -59,15 +59,15 @@ class SimpleCalendarTest {
         Event[] events = {new SimpleEvent(Integer.valueOf(1)), new SimpleEvent(Integer.valueOf(2)),
                 new SimpleEvent(Integer.valueOf(3)), new SimpleEvent(Integer.valueOf(4))};
 
-        for (Event each : events) {
+        for(Event each : events) {
             cal1.events().add(each);
         }
 
-        for (Event each : events) {
+        for(Event each : events) {
             cal2.events().add(each);
         }
 
-        for (Event each : events) {
+        for(Event each : events) {
             assertFalse(cal1.events().contains(each));
             assertEquals(cal2, each.calendar().get());
         }
